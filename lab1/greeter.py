@@ -1,8 +1,12 @@
 from datetime import datetime
+import logging
 
 class Greeter:
 
     def greet(self, name):
+        logging.basicConfig(filename='example.log', format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+        logging.info(" : method was called.")
+
         if 6 <= datetime.now().hour < 12:
             return "Доброе утро %s" % name.strip().capitalize()
         elif 18 <= datetime.now().hour < 22:
